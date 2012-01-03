@@ -71,8 +71,7 @@
   %script(src="/js/maps.js"))
   :javascript    
     $(document).ready(function() {
-      #{create_markers(@racks)}
-      Map.initWithMarkers(markers);
+      Map.initWithCoords(#{@rack.latitude},#{@rack.longitude});
     });
   
   -# Google analytics snippet

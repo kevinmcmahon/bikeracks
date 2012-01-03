@@ -90,6 +90,12 @@ body {
   margin:auto;
 }
 
+.detailmap #map_canvas {
+  height: 200px;
+  width: 100%;
+  margin:auto;	
+}
+
 /* #Media Queries
 ================================================== */
 

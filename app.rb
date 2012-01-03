@@ -82,5 +82,5 @@ end
 
 get '/location/:id?' do
   @rack = BikeRack.get(params[:id])
-  haml :rackdetail, :layout => :'layouts/map'
+  haml :rackdetail, :layout => :'layouts/mapdetail'
 end

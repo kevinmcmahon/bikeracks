@@ -1,7 +1,19 @@
 .row
   .twelve.columns.offset-by-two
-    %h1.centered=@rack.address
-    #map_canvas
+    %h2.centered=@rack.address
+    .detailmap
+      #map_canvas
+    %table
+      %tbody
+        %tr
+          %td Rack ID
+          %td=@rack.rackid
+        %tr
+          %td Ward
+          %td=@rack.ward
+        %tr
+          %td Community Name
+          %td=@rack.community_name
 .row
   .twelve.columns.offset-by-two
 %footer
