@@ -1,12 +1,12 @@
 # Chicago Public Health Sites
 
-## What is the purpose of Chicago Public Health Sites?
+## What is the purpose of Chicago Bike Rack Site?
 
-I created Chicago Public Health Sites to make it easier for Chicagoans to find out what public health resources are available around them.
+Find bike racks?
 
 ## License
 
-Copyright (c) 2011 Kevin McMahon
+Copyright (c) 2019 Kevin McMahon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
