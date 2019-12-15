@@ -21,11 +21,12 @@
   <!-- http://t.co/dKP3o1e -->
   %meta(name="HandheldFriendly" content="True")
   %meta(name="MobileOptimized" content="320")
-  %meta(name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0")
+  %meta(name="viewport" content="width=device-width, initial-scale=1")
 
   %link(rel="stylesheet" href="/stylesheets/base.css")
-  %link(rel="stylesheet" href="/stylesheets/skeleton.css")
-  %link(rel="stylesheet" href="/stylesheets/layout.css")  
+  %link(rel="stylesheet" href="/stylesheets/skeleton.css" async)
+  %link(rel="stylesheet" href="/stylesheets/layout.css" async) 
+  %link(rel="preconnect" href="https://maps.gstatic.com")
 
   <!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - Enables media queries in some unsupported browsers-->
   %script(type="text/javascript" src="/js/css3-mediaqueries.js")
