@@ -1,10 +1,7 @@
 -# Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary
-%script(type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js")
+%script{:crossorigin => "anonymous", :integrity => "sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=", :src => "https://code.jquery.com/jquery-3.4.1.min.js"}
 :javascript
-  window.jQuery || document.write("<script src='/js/lib/jquery-1.6.2.min.js'>\x3C/script>")
-
-%script(type="text/javascript" src="http://use.typekit.com/prh5rfl.js")
-%script(type="text/javascript")try{Typekit.load();}catch(e){}
+  window.jQuery || document.write("<script src='/js/lib/jquery-3.4.1.min.js'>\x3C/script>")
 
 -# Application scripts
 
