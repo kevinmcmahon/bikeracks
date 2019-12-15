@@ -4,9 +4,9 @@
 
 /* TEAM */
   Kevin McMahon
-  Site: http://www.kevfoo.com
+  Site: https://www.kevfoo.com
   Twitter: @klmcmahon
-  Location: Chicago, IL USA
+  Location: Evanston, IL USA
 
 /* THANKS */
   Names (& URL):
