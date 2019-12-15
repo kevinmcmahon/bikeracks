@@ -4,13 +4,22 @@ require 'awesome_print'
 require 'data_mapper'
 require './bike_rack'
 
+api_token = ENV['CHICAGO_DATA_API_TOKEN']
+
+if api_token.nil? || api_token.empty? {
+  puts 'Requires CHICAGO_DATA_API_TOKEN to be set.'
+  exit(false)
+}
+
 DataMapper::Logger.new($stdout, :debug)
-DataMapper::setup(:default,"postgres://kmcmahon:0c791fd488@beta.spacialdb.com:9999/spacialdb_1321928742fe_kmcmahon")
+
+DataMapper::setup(:default, ENV['TARGET_DB_CONN'] || "postgres://localhost:5432/chicago_db" )
+
 DataMapper.finalize
 
 dataset = 'cbyb-69xx'
 
-Windy.app_token = 'LNK07KanQSRmYhO1SHHA3Kgq9'
+Windy.app_token = ENV['CHICAGO_DATA_API_TOKEN']
 view = Windy.views.find_by_id(dataset)
 
 view.rows.each do |r|
