@@ -28,17 +28,12 @@
   %link(rel="stylesheet" href="/stylesheets/layout.css" async) 
   %link(rel="preconnect" href="https://maps.gstatic.com")
 
-  <!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - Enables media queries in some unsupported browsers-->
-  %script(type="text/javascript" src="/js/css3-mediaqueries.js")
-  %script(src="http://use.typekit.com/zgb1tsz.js")
-  %script try{Typekit.load();}catch(e){}
-
   <!--[if (lt IE 9) & (!IEMobile)]>
   <script src="/js/libs/selectivizr-min.js"></script>
   <![endif]-->
 
   -# All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects
-  %script(type="text/javascript" src="/js/lib/modernizr-2.0.6.min.js")
+  %script(type="text/javascript" src="/js/lib/modernizr-custom.js")
 
   <!-- For iPhone 4 -->
   %link(rel="apple-touch-icon-precomposed" sizes="114x114" href="img/h/apple-touch-icon.png")
@@ -68,13 +63,8 @@
 
   -# JavaScript at the bottom for fast page loading
   = partial :'partials/javascripts'
-  %script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoQOrpkSXhd5CkgbQ-3muk8lMZ7wWWIQ4&callback=initMap")
-  %script(src="/js/maps.js"))
   :javascript    
     $(document).ready(function() {
       #{create_markers(@racks)}
-      Map.initWithMarkers(markers);
+      BikeMap.initWithMarkers(markers);
     });
-  
-  -# Google analytics snippet
-  = partial :'partials/analytics'

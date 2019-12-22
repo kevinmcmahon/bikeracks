@@ -1,19 +1,28 @@
 .row
   .twelve.columns.offset-by-two
-    %h2.centered=@rack.address
+    - p @rack
+    %h2.centered=@rack['address']
     .detailmap
       #map_canvas
+      :javascript
+        var map;
+        function initMap() {
+          map = new google.maps.Map(document.getElementById('map_canvas'), {
+            center: {lat: -34.397, lng: 150.644},
+            zoom: 8
+          });
+        } 
     %table
       %tbody
         %tr
           %td Rack ID
-          %td=@rack.rackid
+          %td=@rack['rack_id']
         %tr
           %td Ward
-          %td=@rack.ward
+          %td=@rack['ward']
         %tr
           %td Community Name
-          %td=@rack.community_name
+          %td=@rack['neighborhood']
 .row
   .twelve.columns.offset-by-two
 %footer

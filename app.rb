@@ -9,23 +9,19 @@ require 'awesome_print'
 
 Dir["lib/**/*.rb"].each {|f| require "./#{f}"}
 
-# Set Sinatra variables
-set :app_file, __FILE__
-set :root, File.dirname(__FILE__)
-set :views, 'views'
-set :public_folder, 'public'
-set :haml, {:format => :html5} # default Haml format is :xhtml
-
-#DataMapper::Logger.new($stdout, :debug)
-DataMapper::setup(:default, ENV['DATABASE_URL'] || "postgres://localhost:5432/chicago_db")
 
 # Allow rendering of partials. See: https://gist.github.com/119874
 helpers Sinatra::Partials
 
-configure do
-  # Default Haml format is :xhtml
-  set :haml, { :format => :html5 }  
-end
+configure { 
+  # Set Sinatra variables
+  set :server, :puma 
+  set :app_file, __FILE__
+  set :root, File.dirname(__FILE__)
+  set :views, 'views'
+  set :public_folder, 'public'
+  set :haml, {:format => :html5} # default Haml format is :xhtml
+}
 
 configure :production do
   set :haml, { :ugly => true }
@@ -40,7 +36,7 @@ helpers do
   def create_markers(array)
       js = "var markers = [\n"
       array.each do |i|
-        js << "{ lat: #{i['latitude']}, lng: #{i.longitude}, name: '#{i.address}' },\n"
+        js << "{ lat: #{i['latitude']}, lng: #{i['longitude']}, name: '#{i['address']}' },\n"
       end
       js << "];\n"
       js
@@ -52,7 +48,7 @@ end
 #
 
 not_found do
-  redirect '/404.html'
+  haml :fourohfour, :layout => :'layouts/application'
 end
 
 get '/' do
@@ -81,6 +77,6 @@ get '/findracks' do
 end
 
 get '/location/:id?' do
-  @rack = BikeRack.get(params[:id])
+  @rack = RackFinder.find_rack(params['id'])
   haml :rackdetail, :layout => :'layouts/mapdetail'
 end

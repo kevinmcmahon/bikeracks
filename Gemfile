@@ -7,7 +7,9 @@ gem 'sass'
 gem 'awesome_print'
 gem 'data_mapper', '1.2.0'
 gem 'dm-postgres-adapter'
+gem 'puma'
 gem 'geocoder'
+
 
 group :development do
   gem 'sinatra-reloader'

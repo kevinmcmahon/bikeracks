@@ -1,8 +1,15 @@
-var Map = {
+var BikeMap = {
   map: null,
 
   init: function() {
     this.initWithCoords(41.875696, -87.624207);
+  },
+
+  initMap: function() {
+    map = new google.maps.Map(document.getElementById('map_canvas'), {
+      center: { lat: 41.875696, lng: -87.624207 },
+      zoom: 8
+    });
   },
 
   initWithCoords: function(lat, lng) {
