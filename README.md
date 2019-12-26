@@ -1,4 +1,8 @@
-# bikeracks-web
+# Chicago Public Health Sites
+
+## What is the purpose of Chicago Bike Rack Site?
+
+Find bike racks? More specifically though a toy app to play around with some data the City of Chicago publishes and PostGIS extensions for PostgresDB.
 
 ## Project setup
 ```
