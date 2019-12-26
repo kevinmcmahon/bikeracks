@@ -44,9 +44,6 @@
         },
         data:  () => ({
             rack: null,
-            accessToken: 'pk.eyJ1Ijoia2V2aW5tY21haG9uIiwiYSI6ImNrNGt0aWw2cDIzZmYzb3J2aTRnZTd4OHkifQ._d7t4x162q4vNa5jSLKx7g',
-            mapStyle: 'mapbox://styles/kevinmcmahon/ck4kuagvo6lmu1cqwfxlyo55b',
-            coordinates: []
         }),
         mounted: async function () {
             // eslint-disable-next-line no-console            

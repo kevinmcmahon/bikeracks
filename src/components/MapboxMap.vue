@@ -42,8 +42,8 @@ export default {
     },
     data() {
         return {
-            accessToken: 'pk.eyJ1Ijoia2V2aW5tY21haG9uIiwiYSI6ImNrNGt0aWw2cDIzZmYzb3J2aTRnZTd4OHkifQ._d7t4x162q4vNa5jSLKx7g',
-            mapStyle: 'mapbox://styles/kevinmcmahon/ck4kuagvo6lmu1cqwfxlyo55b',
+            accessToken: process.env.VUE_APP_MAPBOX_API_KEY,
+            mapStyle: process.env.VUE_APP_MAP_STYLE,
             coordinates: [],
         };
     },
