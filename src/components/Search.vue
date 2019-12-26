@@ -9,8 +9,8 @@
                 ></v-text-field>
             </v-row>
             <v-row :class="`d-flex justify-center mb-6`">
-                <v-btn class="ma-1" depressed large color="secondary" @click="displayResults()">Look Up Address</v-btn>
-                <v-btn class="ma-1" depressed large color="secondary">Current Location</v-btn>
+                <v-btn class="ma-1" depressed large color="secondary" @click="searchByAddress()">Look Up Address</v-btn>
+                <v-btn class="ma-1" depressed large color="secondary" @click="searchByLatLng()">Current Location</v-btn>
             </v-row>
         </v-container>
     </form>
@@ -25,8 +25,11 @@
             
         },
         methods: {
-            displayResults: async function() {
+            searchByLatLng: async function() {
                 this.$router.push({ path: 'bikeracks', query: { lat: '41.878513', lng: '-87.636665' } })
+            },
+            searchByAddress: async function() {
+                this.$router.push({ path: 'bikeracks', query: { address: this.searchQuery }})
             }
         }
     }

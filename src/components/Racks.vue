@@ -1,24 +1,23 @@
 <template>
     <div>
-        <v-card
+        <v-card v-if="racks && lat && lng"
             class="mx-auto"
             max-width="1000">
             <header class="d-flex justify-center py-5" >
                 <h1>Closest Bike Racks</h1>
             </header>
-            <MapboxMap
-                v-bind:lat="Number(this.$route.query.lat)"
-                v-bind:lng="Number(this.$route.query.lng)"
+            <MapboxMap                
+                v-bind:lat="lat"
+                v-bind:lng="lng"
                 v-bind:racks="racks"
-                style="width:100%;  height: 400px;"
-                class="px-5">            
+                style="width:100%; height: 400px;">            
             </MapboxMap>
              <v-simple-table
-                class="py-5">
+                class="py-5 ">
                 <template v-slot:default>
                     <thead>
                     <tr>
-                        <th class="font-weight-bold display-1 text-center">Distance</th>
+                        <th class="font-weight-bold display-1 text-center">Distance (mi)</th>
                         <th class="font-weight-bold display-1 text-center">Rack ID</th>
                         <th class="font-weight-bold display-1 text-left">Address</th>
                     </tr>
@@ -46,14 +45,30 @@
             MapboxMap
         },
         data:  () => ({
-            racks: []
+            racks: [],
+            lat: null,
+            lng: null
         }),
         mounted: function () {
-            this.getClosestRacks(this.$route.query.lat,this.$route.query.lng).then(response =>  this.racks = response.data).catch( error => { this.console.log(error); })
+            var promise;
+            if(this.$route.query.address) {
+                promise = this.getClosestRacksByAddress(this.$route.query.address);
+            } else {
+                promise = this.getClosestRacks(this.$route.query.lat,this.$route.query.lng);
+            }
+            promise.then(response =>  { 
+                     const {coordinates, racks} = response.data;
+                     this.lat = coordinates.latitude;
+                     this.lng = coordinates.longitude;
+                     this.racks = racks;
+                }).catch( error => { this.console.log(error); });
         },
         methods: {
             getClosestRacks: async function (lat,lng) {
                 return api.get('/bikeracks?lat='+lat+'&lng='+lng);
+            },
+            getClosestRacksByAddress: async function (address) {
+                return api.get('/bikeracks?address='+address);
             },
             rackSelected: async function(rack) {
                 this.$router.push({ path: `/bikeracks/${rack.id}`})
