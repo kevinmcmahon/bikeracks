@@ -1,6 +1,6 @@
-# Chicago Public Health Sites
+# Chicago Bike Rack Locator
 
-## What is the purpose of Chicago Bike Rack Site?
+## What is the purpose of this Chicago Bike Rack Locator?
 
 Find bike racks? More specifically though a toy app to play around with some data the City of Chicago publishes and PostGIS extensions for PostgresDB.
 
