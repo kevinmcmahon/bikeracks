@@ -5,6 +5,9 @@
       color="primary"
       dark
     >
+    <v-btn
+      href="/"
+      text>
       <div class="d-flex align-center">
         <v-img
           alt="Chicago Flag Star"
@@ -16,11 +19,11 @@
         />
         <span class="display-1">Chicago Bike Rack Finder</span>      
       </div>
-
+    </v-btn>
       <v-spacer></v-spacer>
 
       <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        href="https://github.com/kevinmcmahon/bikeracks"
         target="_blank"
         text
       >
@@ -39,7 +42,6 @@
 
 export default {
   name: 'App',
-
   data: () => ({
 
   }),
