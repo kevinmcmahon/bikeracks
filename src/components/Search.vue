@@ -17,6 +17,7 @@
 </template>
 
 <script>
+
     export default {
         data:  () => ({
             searchQuery: '',
@@ -26,10 +27,28 @@
         },
         methods: {
             searchByLatLng: async function() {
-                this.$router.push({ path: 'bikeracks', query: { lat: '41.878513', lng: '-87.636665' } })
+                this.getLocation(position => { 
+                    this.$router.push({ path: 'bikeracks', query: { lat: position.latitude, lng: position.longitude } });
+                });
             },
             searchByAddress: async function() {
                 this.$router.push({ path: 'bikeracks', query: { address: this.searchQuery }})
+            },
+             getLocation: function(callback) {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                    position => {
+                        const lat = position.coords.latitude;
+                        const lng = position.coords.longitude;
+                        callback({ latitude: lat, longitude: lng });
+                    },
+                    err => {
+                        console.error(err);
+                        callback(null, err);
+                    });
+                } else {
+                    console.error("browser doesn't support geolocation");
+                }
             }
         }
     }
