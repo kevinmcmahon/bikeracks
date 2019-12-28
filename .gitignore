@@ -2,6 +2,16 @@
 node_modules
 /dist
 
+aws/**/*.js
+aws/**/*.d.ts
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+
+config-cdk-bikeracks.json
+
+
 # local env files
 .env.local
 .env.*.local
