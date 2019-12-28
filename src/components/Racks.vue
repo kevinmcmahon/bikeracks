@@ -61,7 +61,7 @@
                      this.lat = coordinates.latitude;
                      this.lng = coordinates.longitude;
                      this.racks = racks;
-                }).catch( error => { this.console.log(error); });
+                }).catch( error => { console.error(error); });
         },
         methods: {
             getClosestRacks: async function (lat,lng) {
