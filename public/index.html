@@ -4,11 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" type="image/png" href="<%= BASE_URL %>favicon.png">
+    <meta name="Description" content="Locate nearest bike rack in Chicago"/>
     <title>Chicago Bike Racks Finder</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+    <link rel="preconnect" href="<%= BASE_URL %>"/>
+    <link rel="icon" type="image/png" href="<%= BASE_URL %>favicon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
-     <!-- ... -->
+
     <!-- Mapbox GL CSS -->
     <link
       href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css"
@@ -20,13 +22,13 @@
       rel="stylesheet"
     />
     <!-- Mapbox GL JS -->
-    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js"></script>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js" async></script>
     <!-- VueJS -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@latest/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@latest/dist/vue.min.js" async></script>
     <!-- Vue-mapbox -->
     <script
       type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/vue-mapbox@latest/dist/vue-mapbox.min.js"
+      src="https://cdn.jsdelivr.net/npm/vue-mapbox@latest/dist/vue-mapbox.min.js"  async
     ></script>
   </head>
   <body>
