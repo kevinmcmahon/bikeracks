@@ -25,6 +25,7 @@
       <v-btn
         href="https://github.com/kevinmcmahon/bikeracks"
         target="_blank"
+        rel="noopener"
         text
       >
         <span class="mr-2">Github</span>
