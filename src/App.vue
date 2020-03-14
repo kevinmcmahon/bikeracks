@@ -32,10 +32,17 @@
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
     </v-app-bar>
-
     <v-content>
       <router-view />
     </v-content>
+    <v-footer padless color="primary" dark>
+      <v-col
+        class="text-center"
+        cols="12"
+      >
+        {{ new Date().getFullYear() }} — <strong>Kevin McMahon</strong>
+      </v-col>
+  </v-footer>
   </v-app>
 </template>
 

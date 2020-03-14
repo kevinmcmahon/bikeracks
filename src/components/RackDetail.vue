@@ -2,15 +2,14 @@
 <template>
     <div>
         <v-card v-if="rack"
-            class="mx-auto"
-            max-width="1000">
+            class="ma-5">
             <header class="d-flex justify-center">
                 <h1>{{ rack.address }}</h1>
             </header>
             <MapboxMap
                 v-bind:lat="rack.latitude"
                 v-bind:lng="rack.longitude"
-                style="width:100%;  height: 400px;"
+                style="width:100%; height: 400px;"
                 class="px-5">
             </MapboxMap>
             <v-simple-table class="elevation-1">

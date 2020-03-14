@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-card v-if="racks && lat && lng"
-            class="mx-auto"
+            class="ma-5"
             max-width="1000">
             <header class="d-flex justify-center py-5" >
                 <h1>Closest Bike Racks</h1>
