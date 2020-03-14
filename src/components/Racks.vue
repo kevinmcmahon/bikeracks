@@ -17,9 +17,9 @@
                 <template v-slot:default>
                     <thead>
                     <tr>
-                        <th class="font-weight-bold display-1 text-center">Distance (mi)</th>
-                        <th class="font-weight-bold display-1 text-center">Rack ID</th>
-                        <th class="font-weight-bold display-1 text-left">Address</th>
+                        <th id='distance' class="font-weight-bold display-1 text-center">Distance (mi)</th>
+                        <th id='rack-id' class="font-weight-bold display-1 text-center">Rack ID</th>
+                        <th id='address' class="font-weight-bold display-1 text-left">Address</th>
                     </tr>
                     </thead>
                     <tbody v-for="item in racks" :key="item.id" v-on:click="rackSelected(item)">
