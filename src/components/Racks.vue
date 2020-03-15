@@ -1,32 +1,32 @@
 <template>
     <div>
         <v-card v-if="racks && lat && lng"
-            class="ma-5"
+            class="mx-auto my-8"
             max-width="1000">
-            <header class="d-flex justify-center py-5" >
+            <header class="d-flex justify-center py-2" >
                 <h1>Closest Bike Racks</h1>
             </header>
             <MapboxMap                
                 v-bind:lat="lat"
                 v-bind:lng="lng"
                 v-bind:racks="racks"
-                style="width:100%; height: 400px;">            
+                style="width:100%; height: 320px;">            
             </MapboxMap>
              <v-simple-table
                 class="py-5 ">
                 <template v-slot:default>
                     <thead>
                     <tr>
-                        <th id='distance' class="font-weight-bold display-1 text-center">Distance (mi)</th>
-                        <th id='rack-id' class="font-weight-bold display-1 text-center">Rack ID</th>
-                        <th id='address' class="font-weight-bold display-1 text-left">Address</th>
+                        <th id='distance' class="font-weight-bold headline text-center">Distance (mi)</th>
+                        <th id='rack-id' class="font-weight-bold headline text-center">Rack ID</th>
+                        <th id='address' class="font-weight-bold headline text-left">Address</th>
                     </tr>
                     </thead>
                     <tbody v-for="item in racks" :key="item.id" v-on:click="rackSelected(item)">
                     <tr>
-                        <td class="display-1 text-center">{{ item.dist }}</td>
-                        <td class="display-1 text-center">{{ item.rack_id }}</td>
-                        <td class="display-1 text-left"> {{ item.address }}</td>
+                        <td class="headline text-center">{{ item.dist }}</td>
+                        <td class="headline text-center">{{ item.rack_id }}</td>
+                        <td class="headline text-left"> {{ item.address }}</td>
                     </tr>
                     </tbody>
                 </template>
