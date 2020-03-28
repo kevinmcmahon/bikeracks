@@ -21,7 +21,6 @@
       </div>
     </v-btn>
       <v-spacer></v-spacer>
-
       <v-btn
         href="https://github.com/kevinmcmahon/bikeracks"
         target="_blank"
@@ -35,34 +34,25 @@
     <v-content>
       <router-view />
     </v-content>
-    <v-footer padless color="primary" dark>
-      <v-col
-        class="text-center bikeracks-text"
-        cols="12"
-      >
-        <strong>Kevin McMahon</strong> <div class='chistar'>CHISTAR</div>  {{ new Date().getFullYear() }} 
-      </v-col>
-  </v-footer>
+    <Footer />
   </v-app>
 </template>
 
 <script>
+  import Footer from "@/views/Footer";
+  export default {
+    name: 'App',
+    components: {
+      Footer
+    },
+    data: () => ({
 
-export default {
-  name: 'App',
-  data: () => ({
-
-  }),
-};
+    }),
+  };
 </script>
 
 <style lang="scss">
   @import '@/sass/variables.scss';
-  .bikeracks-text {
-    font-family: $body-title-family;
-    font-weight: 500;
-    text-transform: uppercase;
-  }
   .bikeracks-title {
     display: block;
     font-family: $body-title-family;
@@ -71,11 +61,5 @@ export default {
     font-weight: 700;
     margin: 0;
     text-transform: uppercase;
-  }
-  .chistar {
-    display: inline;
-    font-family: "Big Shoulders Text";
-    color: $color-star-red;
-    font-variant-ligatures: discretionary-ligatures;
   }
 </style>
