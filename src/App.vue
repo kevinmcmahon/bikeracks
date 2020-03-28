@@ -17,7 +17,7 @@
           transition="scale-transition"
           width="40"
         />
-        <span class="display-1">Chicago Bike Rack Finder</span>      
+        <span class="bikeracks-title">Chicago Bike Rack Finder</span>      
       </div>
     </v-btn>
       <v-spacer></v-spacer>
@@ -37,10 +37,10 @@
     </v-content>
     <v-footer padless color="primary" dark>
       <v-col
-        class="text-center"
+        class="text-center bikeracks-text"
         cols="12"
       >
-        {{ new Date().getFullYear() }} — <strong>Kevin McMahon</strong>
+        <strong>Kevin McMahon</strong> <div class='chistar'>CHISTAR</div>  {{ new Date().getFullYear() }} 
       </v-col>
   </v-footer>
   </v-app>
@@ -55,3 +55,27 @@ export default {
   }),
 };
 </script>
+
+<style lang="scss">
+  @import '@/sass/variables.scss';
+  .bikeracks-text {
+    font-family: $body-title-family;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  .bikeracks-title {
+    display: block;
+    font-family: $body-title-family;
+    font-style: normal;    
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+  }
+  .chistar {
+    display: inline;
+    font-family: "Big Shoulders Text";
+    color: $color-star-red;
+    font-variant-ligatures: discretionary-ligatures;
+  }
+</style>
