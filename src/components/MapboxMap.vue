@@ -5,11 +5,11 @@
     :zoom="16"
     :center="[this.lng, this.lat]">
         <p v-if="racks">
-            <MglMarker :coordinates="[this.lng, this.lat]" color="blue" />
+            <MglMarker :coordinates="[this.lng, this.lat]" color="#41b6e6" />
             <MglMarker v-for="rack in racks" v-bind:key="rack.id" :coordinates="rackCoordinates(rack)" color="red" />
         </p>
         <p v-else>
-            <MglMarker :coordinates="[this.lng, this.lat]" color="red" />
+            <MglMarker :coordinates="[this.lng, this.lat]" color="#e4002b" />
         </p>        
   </MglMap>
 </template>
