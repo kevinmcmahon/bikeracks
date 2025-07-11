@@ -1,4 +1,4 @@
-import cdk = require('@aws-cdk/core');
+import * as cdk from 'aws-cdk-lib';
 import { StaticWebsiteStack, IStaticWebsiteProps } from './StaticWebsiteStack';
 const config = require('../config-cdk-bikeracks.json');
 

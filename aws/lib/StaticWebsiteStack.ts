@@ -1,16 +1,16 @@
-import cdk = require('@aws-cdk/core');
+import * as cdk from 'aws-cdk-lib';
 import {
   CloudFrontWebDistribution,
   CloudFrontWebDistributionProps,
   OriginAccessIdentity,
-} from '@aws-cdk/aws-cloudfront'
-import { Bucket } from '@aws-cdk/aws-s3';
-import { BucketDeployment, Source } from '@aws-cdk/aws-s3-deployment';
+} from 'aws-cdk-lib/aws-cloudfront';
+import { Bucket } from 'aws-cdk-lib/aws-s3';
+import { BucketDeployment, Source } from 'aws-cdk-lib/aws-s3-deployment';
 import * as semver from 'semver';
 
 export class StaticWebsiteStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, staticWebsiteConfig: IStaticWebsiteProps) {
-    super(scope, id, undefined);
+    super(scope, id);
 
     const resourcePrefix = staticWebsiteConfig.resourcePrefix;
     const deploymentVersion = semver.inc(staticWebsiteConfig.deploymentVersion, 'patch') || '1.0.0';
@@ -40,24 +40,29 @@ export class StaticWebsiteStack extends cdk.Stack {
           {
             s3OriginSource: {
               s3BucketSource: sourceBucket,
-              originAccessIdentity: oai
+              originAccessIdentity: oai,
+              originPath: `/${originPath}`
             },
-            behaviors: [ {isDefaultBehavior: true}],
-            originPath: `/${originPath}`,
+            behaviors: [ {isDefaultBehavior: true}]
           }
         ],
-        aliasConfiguration: {
-          acmCertRef: staticWebsiteConfig.certificateArn,
-          names: staticWebsiteConfig.domainNames || []
+        viewerCertificate: {
+          aliases: staticWebsiteConfig.domainNames || [],
+          props: {
+            acmCertificateArn: staticWebsiteConfig.certificateArn,
+            sslSupportMethod: 'sni-only'
+          }
         }
       };
     } else {
       cloudFrontDistProps = {
         originConfigs: [
           {
-            s3OriginSource: { s3BucketSource: sourceBucket },
-            behaviors: [ {isDefaultBehavior: true}],
-            originPath: `/${originPath}`,
+            s3OriginSource: { 
+              s3BucketSource: sourceBucket,
+              originPath: `/${originPath}`
+            },
+            behaviors: [ {isDefaultBehavior: true}]
           }
         ]
       };
