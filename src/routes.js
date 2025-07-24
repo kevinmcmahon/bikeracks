@@ -1,28 +1,29 @@
-import Vue from 'vue';
-import Router from 'vue-router';
-import RackDetail from '@/components/RackDetail';
-import Search from '@/components/Search';
-import Racks from '@/components/Racks';
+import { createRouter, createWebHistory } from 'vue-router';
+import RackDetail from '@/components/RackDetail.vue';
+import Search from '@/components/Search.vue';
+import Racks from '@/components/Racks.vue';
 
-Vue.use(Router);
+const routes = [
+  {
+    path: '/',
+    name: 'home',
+    component: Search
+  },
+  {
+    path: '/bikeracks',
+    name: 'bikeracks',
+    component: Racks
+  },
+  {
+    path: '/bikeracks/:id',
+    name: 'bikerackdetail',
+    component: RackDetail
+  }
+];
 
-export default new Router({
-  mode: 'history',
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Search
-    },
-    {
-      path: '/bikeracks',
-      name: 'bikeracks',
-      component: Racks
-    },
-    {
-      path: '/bikeracks/:id',
-      name: 'bikerackdetail',
-      component: RackDetail
-    }
-  ]
+const router = createRouter({
+  history: createWebHistory(),
+  routes
 });
+
+export default router;

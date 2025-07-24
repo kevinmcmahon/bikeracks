@@ -1,20 +1,17 @@
 <template>
   <v-app>
     <v-app-bar
-      app
       color="primary"
-      dark
+      theme="dark"
     >
     <v-btn
       href="/"
-      text>
+      variant="text">
       <div class="d-flex align-center">
         <v-img
           alt="Chicago Flag Star"
           class="shrink mr-2"
-          contain
           src="./assets/chicago-star.svg"
-          transition="scale-transition"
           width="40"
         />
         <span class="bikeracks-title">Chicago Bike Rack Finder</span>      
@@ -25,15 +22,15 @@
         href="https://github.com/kevinmcmahon/bikeracks"
         target="_blank"
         rel="noopener"
-        text
+        variant="text"
       >
         <span class="mr-2">Github</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
     </v-app-bar>
-    <v-content>
+    <v-main>
       <router-view />
-    </v-content>
+    </v-main>
     <Footer />
   </v-app>
 </template>

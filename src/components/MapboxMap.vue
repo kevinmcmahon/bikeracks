@@ -1,54 +1,96 @@
 <template>
-  <MglMap 
-    :accessToken="accessToken"
-    :mapStyle="mapStyle"
-    :zoom="16"
-    :center="[this.lng, this.lat]">
-        <p v-if="racks">
-            <MglMarker :coordinates="[this.lng, this.lat]" color="#41b6e6" />
-            <MglMarker v-for="rack in racks" v-bind:key="rack.id" :coordinates="rackCoordinates(rack)" color="red" />
-        </p>
-        <p v-else>
-            <MglMarker :coordinates="[this.lng, this.lat]" color="#e4002b" />
-        </p>        
-  </MglMap>
+  <div ref="mapContainer" class="map-container" style="width: 100%; height: 400px;"></div>
 </template>
 
 <script>
-import Mapbox from "mapbox-gl";
-
-import { MglMap, MglMarker } from 'vue-mapbox'
+import mapboxgl from "mapbox-gl";
 
 export default {
-    components: {
-        MglMap,
-        MglMarker
-    }, 
+    name: 'MapboxMap',
     props: {
         lat: {
-            type: Number
+            type: Number,
+            required: true
         },
         lng: {
-            type: Number
+            type: Number,
+            required: true
         },
         racks: {
-            type: Array
-        }
-    },
-    methods: {
-        rackCoordinates: function(rack) {
-            return [rack.longitude, rack.latitude ];
+            type: Array,
+            default: () => []
         }
     },
     data() {
         return {
-            accessToken: process.env.VUE_APP_MAPBOX_API_KEY,
-            mapStyle: process.env.VUE_APP_MAP_STYLE,
-            coordinates: [],
+            map: null,
+            markers: []
         };
     },
-    created() {
-        this.mapbox = Mapbox;
+    mounted() {
+        mapboxgl.accessToken = process.env.VUE_APP_MAPBOX_API_KEY || 'your-mapbox-token';
+        
+        this.map = new mapboxgl.Map({
+            container: this.$refs.mapContainer,
+            style: process.env.VUE_APP_MAP_STYLE || 'mapbox://styles/mapbox/streets-v11',
+            center: [this.lng, this.lat],
+            zoom: 16
+        });
+
+        this.addMarkers();
+    },
+    beforeUnmount() {
+        if (this.map) {
+            this.map.remove();
+        }
+    },
+    watch: {
+        lat() {
+            this.updateMap();
+        },
+        lng() {
+            this.updateMap();
+        },
+        racks() {
+            this.addMarkers();
+        }
+    },
+    methods: {
+        updateMap() {
+            if (this.map) {
+                this.map.setCenter([this.lng, this.lat]);
+                this.addMarkers();
+            }
+        },
+        clearMarkers() {
+            this.markers.forEach(marker => marker.remove());
+            this.markers = [];
+        },
+        addMarkers() {
+            this.clearMarkers();
+            
+            // Add center marker (user location)
+            const centerMarker = new mapboxgl.Marker({ color: '#41b6e6' })
+                .setLngLat([this.lng, this.lat])
+                .addTo(this.map);
+            this.markers.push(centerMarker);
+            
+            // Add rack markers
+            if (this.racks && this.racks.length > 0) {
+                this.racks.forEach(rack => {
+                    const marker = new mapboxgl.Marker({ color: 'red' })
+                        .setLngLat([rack.longitude, rack.latitude])
+                        .addTo(this.map);
+                    this.markers.push(marker);
+                });
+            }
+        }
     }
 };
 </script>
+
+<style scoped>
+.map-container {
+    border-radius: 8px;
+}
+</style>

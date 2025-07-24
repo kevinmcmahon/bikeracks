@@ -10,8 +10,8 @@
         </v-form>
         <v-card-actions>
             <v-spacer/>
-            <v-btn class="ma-1" depressed large color="secondary" @click="searchByAddress()">Look Up Address</v-btn>
-            <v-btn class="ma-1" depressed large color="secondary" @click="searchByLatLng()">Current Location</v-btn>
+            <v-btn class="ma-1" variant="elevated" size="large" color="secondary" @click="searchByAddress()">Look Up Address</v-btn>
+            <v-btn class="ma-1" variant="elevated" size="large" color="secondary" @click="searchByLatLng()">Current Location</v-btn>
             <v-spacer/>
         </v-card-actions>
     </v-card>
