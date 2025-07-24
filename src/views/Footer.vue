@@ -7,16 +7,16 @@
 </template>
 
 <style lang="scss" scoped>
-  @import '@/sass/variables.scss';
+  @use '@/sass/variables.scss' as vars;
   .footer-text {
-    font-family: $body-title-family;
+    font-family: vars.$body-title-family;
     font-weight: 500;
     text-transform: uppercase;
   }
   .chistar {
     display: inline;
     font-family: "Big Shoulders Text";
-    color: $color-star-red;
+    color: vars.$color-star-red;
     font-variant-ligatures: discretionary-ligatures;
   }
 </style>

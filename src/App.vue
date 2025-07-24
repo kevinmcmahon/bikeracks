@@ -49,10 +49,10 @@
 </script>
 
 <style lang="scss">
-  @import '@/sass/variables.scss';
+  @use '@/sass/variables.scss' as vars;
   .bikeracks-title {
     display: block;
-    font-family: $body-title-family;
+    font-family: vars.$body-title-family;
     font-style: normal;    
     font-size: 2.5rem;
     font-weight: 700;
