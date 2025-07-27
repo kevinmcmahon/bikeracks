@@ -1,7 +1,11 @@
 const { defineConfig } = require('@vue/cli-service')
 
 module.exports = defineConfig({
-  transpileDependencies: true,
+  // Don't transpile mapbox-gl - it's already compiled for modern browsers
+  transpileDependencies: [
+    'vuetify',
+    // Exclude mapbox-gl by not including it here
+  ],
   css: {
     loaderOptions: {
       sass: {

@@ -1,56 +1,56 @@
 {
-  "name": "bikeracks-web",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
-  },
-  "dependencies": {
-    "@mapbox/mapbox-gl-geocoder": "^5.0.1",
-    "@mdi/font": "^7.3.67",
-    "axios": "^1.6.2",
-    "core-js": "^3.33.3",
-    "mapbox-gl": "^3.0.1",
-    "vue": "^3.3.9",
-    "vue-router": "^4.2.5",
-    "vuetify": "^3.4.7"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.23.6",
-    "@babel/eslint-parser": "^7.23.3",
-    "@vue/cli-plugin-babel": "^5.0.8",
-    "@vue/cli-plugin-eslint": "^5.0.8",
-    "@vue/cli-service": "^5.0.8",
-    "@vue/compiler-sfc": "^3.3.9",
-    "eslint": "^8.54.0",
-    "eslint-plugin-vue": "^9.19.2",
-    "sass": "^1.77.8",
-    "sass-loader": "^14.1.1",
-    "webpack-plugin-vuetify": "^2.0.1"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
+    "name": "bikeracks-web",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint"
     },
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended"
+    "dependencies": {
+        "@mapbox/mapbox-gl-geocoder": "^5.0.1",
+        "@mdi/font": "^7.3.67",
+        "axios": "^1.6.2",
+        "core-js": "^3.33.3",
+        "mapbox-gl": "^3.0.1",
+        "vue": "^3.3.9",
+        "vue-router": "^4.2.5",
+        "vuetify": "^3.4.7"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.23.6",
+        "@babel/eslint-parser": "^7.23.3",
+        "@babel/plugin-transform-runtime": "^7.28.0",
+        "@babel/runtime": "^7.28.2",
+        "@vue/cli-plugin-babel": "^5.0.8",
+        "@vue/cli-plugin-eslint": "^5.0.8",
+        "@vue/cli-service": "^5.0.8",
+        "@vue/compiler-sfc": "^3.3.9",
+        "eslint": "^8.57.0",
+        "eslint-plugin-vue": "^9.19.2",
+        "sass": "^1.77.8",
+        "sass-loader": "^16.0.5",
+        "webpack-plugin-vuetify": "^3.1.1",
+        "worker-loader": "^3.0.8"
+    },
+    "eslintConfig": {
+        "root": true,
+        "env": {
+            "node": true
+        },
+        "extends": [
+            "plugin:vue/vue3-essential",
+            "eslint:recommended"
+        ],
+        "rules": {},
+        "parserOptions": {
+            "parser": "@babel/eslint-parser",
+            "requireConfigFile": false
+        }
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions"
     ],
-    "rules": {
-      "vue/multi-word-component-names": "off",
-      "vue/no-reserved-component-names": "off"
-    },
-    "parserOptions": {
-      "parser": "@babel/eslint-parser",
-      "requireConfigFile": false
-    }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ],
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+    "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

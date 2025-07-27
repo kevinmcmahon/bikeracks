@@ -1,29 +1,29 @@
+import RackDetailComponent from '@/components/RackDetailComponent.vue';
 import { createRouter, createWebHistory } from 'vue-router';
-import RackDetail from '@/components/RackDetail.vue';
-import Search from '@/components/Search.vue';
-import Racks from '@/components/Racks.vue';
+import RacksComponent from './components/RacksComponent.vue';
+import SearchComponent from './components/SearchComponent.vue';
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: Search
-  },
-  {
-    path: '/bikeracks',
-    name: 'bikeracks',
-    component: Racks
-  },
-  {
-    path: '/bikeracks/:id',
-    name: 'bikerackdetail',
-    component: RackDetail
-  }
+    {
+        path: '/',
+        name: 'home',
+        component: SearchComponent,
+    },
+    {
+        path: '/bikeracks',
+        name: 'bikeracks',
+        component: RacksComponent,
+    },
+    {
+        path: '/bikeracks/:id',
+        name: 'bikerackdetail',
+        component: RackDetailComponent,
+    },
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes
+    history: createWebHistory(),
+    routes,
 });
 
 export default router;
