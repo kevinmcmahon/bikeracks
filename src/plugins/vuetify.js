@@ -1,14 +1,48 @@
 import 'vuetify/styles';
-import '@mdi/font/css/materialdesignicons.css';
 import { createVuetify } from 'vuetify';
-import * as components from 'vuetify/components';
-import * as directives from 'vuetify/directives';
+import {
+  VApp,
+  VAppBar,
+  VMain,
+  VBtn,
+  VImg,
+  VIcon,
+  VSpacer,
+  VCard,
+  VCardActions,
+  VForm,
+  VTextField,
+  VTable,
+  VFooter
+} from 'vuetify/components';
+import { aliases, mdi } from 'vuetify/iconsets/mdi-svg';
+import { mdiOpenInNew } from '@mdi/js';
 
 export default createVuetify({
-  components,
-  directives,
+  components: {
+    VApp,
+    VAppBar,
+    VMain,
+    VBtn,
+    VImg,
+    VIcon,
+    VSpacer,
+    VCard,
+    VCardActions,
+    VForm,
+    VTextField,
+    VTable,
+    VFooter
+  },
   icons: {
     defaultSet: 'mdi',
+    aliases: {
+      ...aliases,
+      openInNew: mdiOpenInNew,
+    },
+    sets: {
+      mdi,
+    },
   },
   theme: {
     themes: {

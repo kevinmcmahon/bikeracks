@@ -20,7 +20,7 @@
                 variant="text"
             >
                 <span class="mr-2">Github</span>
-                <v-icon>mdi-open-in-new</v-icon>
+                <v-icon>$openInNew</v-icon>
             </v-btn>
         </v-app-bar>
         <v-main>

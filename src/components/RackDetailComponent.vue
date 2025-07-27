@@ -11,7 +11,7 @@
                 class="px-5"
             >
             </MapboxMapComponent>
-            <v-simple-table class="elevation-1">
+            <v-table class="elevation-1">
                 <tbody>
                     <tr>
                         <td>Rack ID</td>
@@ -26,7 +26,7 @@
                         <td>{{ rack.neighborhood }}</td>
                     </tr>
                 </tbody>
-            </v-simple-table>
+            </v-table>
         </v-card>
     </div>
 </template>
