@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <v-app-bar color="primary" theme="dark">
+        <v-app-bar color="primary">
             <v-btn href="/" variant="text">
                 <div class="d-flex align-center">
                     <v-img

@@ -90,7 +90,7 @@ export default {
             this.clearMarkers();
             
             // Add center marker (user location)
-            const centerMarker = new maplibregl.Marker({ color: '#41b6e6' })
+            const centerMarker = new maplibregl.Marker({ color: '#41B6E6' })
                 .setLngLat([this.lng, this.lat])
                 .addTo(this.map);
             this.markers.push(centerMarker);
@@ -98,7 +98,7 @@ export default {
             // Add rack markers
             if (this.racks && this.racks.length > 0) {
                 this.racks.forEach(rack => {
-                    const marker = new maplibregl.Marker({ color: 'red' })
+                    const marker = new maplibregl.Marker({ color: '#E4002B' })
                         .setLngLat([rack.longitude, rack.latitude])
                         .addTo(this.map);
                     this.markers.push(marker);

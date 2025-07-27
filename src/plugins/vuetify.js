@@ -18,6 +18,13 @@ export default createVuetify({
           secondary: '#E4002B',
           accent: '#E4002B'
         }
+      },
+      dark: {
+        colors: {
+          primary: '#41B6E6',
+          secondary: '#E4002B',
+          accent: '#E4002B'
+        }
       }
     }
   }
