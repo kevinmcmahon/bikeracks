@@ -6,7 +6,7 @@
                     <v-img
                         alt="Chicago Flag Star"
                         class="shrink mr-2"
-                        src="./assets/chicago-star.svg"
+                        :src="chicagoStarLogo"
                         width="40"
                     />
                     <span class="bikeracks-title">Chicago Bike Rack Finder</span>
@@ -32,12 +32,15 @@
 
 <script>
 import FooterView from '@/views/FooterView';
+import ChicagoStar from '@/assets/chicago-star.svg';
 export default {
     name: 'App',
     components: {
         FooterView,
     },
-    data: () => ({}),
+    data: () => ({
+        chicagoStarLogo: ChicagoStar,
+    }),
 };
 </script>
 
