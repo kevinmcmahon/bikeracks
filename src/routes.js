@@ -1,23 +1,20 @@
-import RackDetailComponent from '@/components/RackDetailComponent.vue';
 import { createRouter, createWebHistory } from 'vue-router';
-import RacksComponent from './components/RacksComponent.vue';
-import SearchComponent from './components/SearchComponent.vue';
 
 const routes = [
     {
         path: '/',
         name: 'home',
-        component: SearchComponent,
+        component: () => import('@/components/SearchComponent.vue'),
     },
     {
         path: '/bikeracks',
         name: 'bikeracks',
-        component: RacksComponent,
+        component: () => import('@/components/RacksComponent.vue'),
     },
     {
         path: '/bikeracks/:id',
         name: 'bikerackdetail',
-        component: RackDetailComponent,
+        component: () => import('@/components/RackDetailComponent.vue'),
     },
 ];
 

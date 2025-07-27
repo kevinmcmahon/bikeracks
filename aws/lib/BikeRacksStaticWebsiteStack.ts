@@ -8,7 +8,7 @@ export class BikeRacksStaticWebsiteStack extends StaticWebsiteStack {
       websiteDistPath: '../dist',
       deploymentVersion: '1.0.0',
       certificateArn: config.certificateArn,
-      domainNames: [config.domainNames],
+      domainNames: config.domainNames ? [config.domainNames] : [],
       resourcePrefix: config.resourcePrefix,
       indexDocument: 'index.html',
     };
