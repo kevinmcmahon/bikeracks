@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <v-app-bar color="primary">
+        <v-app-bar color="primary" height="80" class="header-tall">
             <v-btn href="/" variant="text">
                 <div class="d-flex align-center">
                     <v-img
