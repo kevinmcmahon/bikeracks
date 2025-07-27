@@ -3,7 +3,8 @@
 </template>
 
 <script>
-import mapboxgl from "mapbox-gl";
+import maplibregl from "maplibre-gl";
+import "maplibre-gl/dist/maplibre-gl.css";
 
 export default {
     name: 'MapboxMap',
@@ -28,11 +29,30 @@ export default {
         };
     },
     mounted() {
-        mapboxgl.accessToken = process.env.VUE_APP_MAPBOX_API_KEY || 'your-mapbox-token';
+        // MapLibre doesn't require an access token for non-Mapbox tiles
+        // You can use OpenStreetMap or other free tile sources
         
-        this.map = new mapboxgl.Map({
+        this.map = new maplibregl.Map({
             container: this.$refs.mapContainer,
-            style: process.env.VUE_APP_MAP_STYLE || 'mapbox://styles/mapbox/streets-v11',
+            // Using OpenStreetMap tiles instead of Mapbox
+            style: {
+                version: 8,
+                sources: {
+                    'osm-tiles': {
+                        type: 'raster',
+                        tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+                        tileSize: 256,
+                        attribution: '© OpenStreetMap contributors'
+                    }
+                },
+                layers: [{
+                    id: 'osm-tiles',
+                    type: 'raster',
+                    source: 'osm-tiles',
+                    minzoom: 0,
+                    maxzoom: 19
+                }]
+            },
             center: [this.lng, this.lat],
             zoom: 16
         });
@@ -70,7 +90,7 @@ export default {
             this.clearMarkers();
             
             // Add center marker (user location)
-            const centerMarker = new mapboxgl.Marker({ color: '#41b6e6' })
+            const centerMarker = new maplibregl.Marker({ color: '#41b6e6' })
                 .setLngLat([this.lng, this.lat])
                 .addTo(this.map);
             this.markers.push(centerMarker);
@@ -78,7 +98,7 @@ export default {
             // Add rack markers
             if (this.racks && this.racks.length > 0) {
                 this.racks.forEach(rack => {
-                    const marker = new mapboxgl.Marker({ color: 'red' })
+                    const marker = new maplibregl.Marker({ color: 'red' })
                         .setLngLat([rack.longitude, rack.latitude])
                         .addTo(this.map);
                     this.markers.push(marker);
